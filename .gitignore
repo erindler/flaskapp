@@ -3,3 +3,5 @@ mydatabase.db
 .vs/
 
 __pycache__/
+
+uploads/

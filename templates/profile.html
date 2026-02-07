@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .profile-container { max-width: 600px; border: 1px solid #ccc; padding: 20px; border-radius: 5px; }
+        .profile-item { margin-bottom: 15px; }
+        .label { font-weight: bold; color: #333; }
+        .value { color: #666; margin-top: 5px; }
+        .file-info { background-color: #f0f0f0; padding: 10px; border-radius: 3px; margin: 10px 0; }
+        .download-btn { background-color: #008CBA; color: white; padding: 10px 20px; text-decoration: none; border-radius: 3px; display: inline-block; margin-top: 10px; }
+        .download-btn:hover { background-color: #007399; }
+        .back-link { margin-top: 20px; }
+        a { color: #008CBA; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h1>User Profile</h1>
+        
+        <div class="profile-item">
+            <div class="label">Username:</div>
+            <div class="value">{{ user['username'] }}</div>
+        </div>
+        
+        <div class="profile-item">
+            <div class="label">First Name:</div>
+            <div class="value">{{ user['firstname'] }}</div>
+        </div>
+        
+        <div class="profile-item">
+            <div class="label">Last Name:</div>
+            <div class="value">{{ user['lastname'] }}</div>
+        </div>
+        
+        <div class="profile-item">
+            <div class="label">Email:</div>
+            <div class="value">{{ user['email'] }}</div>
+        </div>
+        
+        <div class="profile-item">
+            <div class="label">Address:</div>
+            <div class="value">{{ user['address'] if user['address'] else 'Not provided' }}</div>
+        </div>
+        
+        {% if file_name %}
+        <div class="profile-item">
+            <div class="file-info">
+                <div class="label">Uploaded File:</div>
+                <div class="value">{{ file_name }}</div>
+                <div class="label" style="margin-top: 10px;">Word Count:</div>
+                <div class="value">{{ word_count }} words</div>
+                <a href="/download/{{ file_name }}" class="download-btn">Download File</a>
+            </div>
+        </div>
+        {% else %}
+        <div class="profile-item">
+            <div class="file-info">
+                <div class="label">File Status:</div>
+                <div class="value">No file uploaded</div>
+            </div>
+        </div>
+        {% endif %}
+        
+        <div class="back-link">
+            <a href="/login">Logout / Login as Different User</a>
+        </div>
+    </div>
+</body>
+</html>

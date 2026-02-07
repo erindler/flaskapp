@@ -1,11 +1,45 @@
 
 
 
-<form method="POST" action="/register">
-    Username: <input type="text" name="username"><br>
-    Password: <input type="password" name="password"><br>
-    First Name: <input type="text" name="firstname"><br>
-    Last Name: <input type="text" name="lastname"><br>
-    Email: <input type="text" name="email"><br>
-    <input type="submit" value="Register">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { max-width: 400px; }
+        input, textarea { width: 100%; padding: 8px; margin: 5px 0 15px 0; box-sizing: border-box; }
+        input[type="submit"] { background-color: #4CAF50; color: white; cursor: pointer; }
+        input[type="submit"]:hover { background-color: #45a049; }
+        label { display: block; font-weight: bold; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>User Registration</h1>
+    <form method="POST" action="/register" enctype="multipart/form-data">
+        <label>Username:</label>
+        <input type="text" name="username" required><br>
+        
+        <label>Password:</label>
+        <input type="password" name="password" required><br>
+        
+        <label>First Name:</label>
+        <input type="text" name="firstname" required><br>
+        
+        <label>Last Name:</label>
+        <input type="text" name="lastname" required><br>
+        
+        <label>Email:</label>
+        <input type="email" name="email" required><br>
+        
+        <label>Address:</label>
+        <textarea name="address" rows="4" required></textarea><br>
+        
+        <label>Upload File (Limerick.txt):</label>
+        <input type="file" name="file" accept=".txt"><br>
+        
+        <input type="submit" value="Register">
+    </form>
+    <p><a href="/login">Already have an account? Login here</a></p>
+</body>
+</html>
