@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <style>
+        * { box-sizing: border-box; }
         body {
             margin: 0;
+            padding: 24px;
             font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
             background: #f5f7fb;
             color: #1d2433;
         }
         .page {
             max-width: 780px;
-            margin: 32px auto;
+            margin: 8px auto;
             background: #ffffff;
-            padding: 28px;
+            padding: 32px;
             border-radius: 12px;
             box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
         }
@@ -23,7 +25,12 @@
         .grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px;
+            gap: 20px;
+        }
+        .grid > div {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
         label {
             display: block;
