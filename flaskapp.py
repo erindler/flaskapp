@@ -15,20 +15,6 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
 
-# SQLite setup
-conn = sqlite3.connect(DB_PATH)
-c = conn.cursor()
-c.execute('''CREATE TABLE IF NOT EXISTS users 
-             (id INTEGER PRIMARY KEY AUTOINCREMENT,
-              username TEXT NOT NULL UNIQUE,
-              password TEXT NOT NULL,
-              firstname TEXT NOT NULL,
-              lastname TEXT NOT NULL,
-              email TEXT NOT NULL,
-              address TEXT)''')
-conn.commit()
-conn.close()
-
 def get_db_connection():
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
